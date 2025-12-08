@@ -1,0 +1,18 @@
+@use "../partials/functions" as f;
+.button {
+  /* retirer les styles par défaut (liens, button)
+
+    /* styles par défaut du composant */
+  /* bg noir par défaut  > déclarer cette couleur au niveau de la racine (idem pour le noir-hover) */
+  /* texte en blanc par défaut > déclarer cette couleur... */
+
+  font-size: f.rem(16);
+  &:hover {
+  }
+
+  /* classes modificatrices */
+  &--primary {
+    &:hover {
+    }
+  }
+}
