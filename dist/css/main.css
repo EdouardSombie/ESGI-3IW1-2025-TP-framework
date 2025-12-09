@@ -185,10 +185,20 @@ summary {
   --grey-hover: rgb(86.4, 93.6, 100);
   --blue: #0d6efd;
   --blue-hover: rgb(1.7442622951, 86.3409836066, 211.0557377049);
+  --lightgrey: #e5e5e5;
+  --lightgrey-hover: rgb(183.2, 183.2, 183.2);
+  --black: #000;
+  --black-hover: #333333;
+  --white: #fff;
+  --white-hover: #cccccc;
 }
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+img {
+  max-width: 100%;
 }
 
 .container {
@@ -222,15 +232,126 @@ body {
 }
 
 .button {
-  /* retirer les styles par défaut (liens, button)
-
-    /* styles par défaut du composant */
+  /* retirer les styles par défaut (liens, button) */
+  all: unset;
+  /* styles par défaut du composant */
   /* bg noir par défaut  > déclarer cette couleur au niveau de la racine (idem pour le noir-hover) */
   /* texte en blanc par défaut > déclarer cette couleur... */
+  background-color: var(--black);
+  color: var(--white);
+  display: inline-block;
+  padding: 0.625rem 1rem;
+  border-radius: 0.375rem;
   font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.125rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.button:hover {
+  background-color: var(--black-hover);
 }
 .button {
   /* classes modificatrices */
+}
+.button--primary {
+  background-color: var(--blue);
+}
+.button--primary:hover {
+  background-color: var(--blue-hover);
+}
+.button--secondary {
+  background-color: var(--grey);
+}
+.button--secondary:hover {
+  background-color: var(--grey-hover);
+}
+.button--danger {
+  background-color: var(--red);
+}
+.button--danger:hover {
+  background-color: var(--red-hover);
+}
+.button--lg {
+  padding: 1rem 1.5rem;
+}
+.button--sm {
+  font-size: 0.875rem;
+  line-height: 1rem;
+  padding: 0.5rem 0.75rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  width: 20rem;
+  padding: 1.25rem;
+  overflow: hidden;
+  background-color: var(--white);
+  border-radius: 0.375rem;
+  border: solid thin var(--lightgrey);
+}
+.card__image {
+  max-width: unset; /* pour que l'image puisse faire plus que 100% de large */
+  width: 20rem;
+  aspect-ratio: 320/200;
+  object-fit: cover;
+  display: block;
+  margin-top: -1.25rem;
+  margin-bottom: 0.625rem;
+  margin-inline: -1.25rem;
+}
+.card__title {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  font-weight: 600;
+  margin: 0;
+}
+.card__text {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  margin: 0;
+}
+@media (prefers-color-scheme: dark) {
+  .card {
+    background-color: var(--black-hover);
+    color: var(--white);
+  }
+}
+.card {
+  /* modifiers */
+}
+.card--dark {
+  background-color: var(--black-hover);
+  color: var(--white);
+}
+.card--full {
+  position: relative;
+  padding-top: 13.75rem;
+}
+.card--full::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--white), color-mix(in srgb, var(--white) 0%, transparent));
+}
+.card--full > * {
+  position: relative;
+  z-index: 1;
+}
+.card--full {
+  /* sélectionner l'élément image dans ce modifier ?? */
+}
+.card--full .card__image {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: unset;
+  margin: unset;
 }
 
 /*# sourceMappingURL=main.css.map */
