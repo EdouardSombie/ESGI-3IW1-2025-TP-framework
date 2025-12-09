@@ -1,67 +1,68 @@
 @use "../partials/functions" as f;
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: f.rem(10);
-  width: f.rem(320);
-  padding: f.rem(20);
-  overflow: hidden;
-  background-color: var(--white);
-  border-radius: f.rem(6);
-  border: solid thin var(--lightgrey);
-  &__image {
-    max-width: unset; /* pour que l'image puisse faire plus que 100% de large */
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: f.rem(10);
     width: f.rem(320);
-    aspect-ratio: 320/200;
-    object-fit: cover;
-    display: block;
-    margin-top: f.rem(-20);
-    margin-bottom: f.rem(10);
-    margin-inline: f.rem(-20);
-  }
-  &__title {
-    font-size: f.rem(20);
-    line-height: 1.2;
-    font-weight: 600;
-    margin: 0;
-  }
-  &__text {
-    font-size: f.rem(16);
-    line-height: f.rem(24);
-    margin: 0;
-  }
-  @media (prefers-color-scheme: dark) {
-    background-color: var(--black-hover);
-    color: var(--white);
-  }
-  /* modifiers */
-  &--dark {
-    background-color: var(--black-hover);
-    color: var(--white);
-  }
-  &--full {
-    position: relative;
-    padding-top: f.rem(220);
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, var(--white), color-mix(in srgb, var(--white) 0%, transparent));
+    padding: f.rem(20);
+    overflow: hidden;
+    background-color: var(--white);
+    border-radius: f.rem(6);
+    border: solid thin var(--lightgrey);
+    &__image {
+      max-width: unset; /* pour que l'image puisse faire plus que 100% de large */
+      width: f.rem(320);
+      aspect-ratio: 320/200;
+      object-fit: cover;
+      display: block;
+      margin-top: f.rem(-20);
+      margin-bottom: f.rem(10);
+      margin-inline: f.rem(-20);
     }
-    & > * {
+    &__title {
+      font-size: f.rem(20);
+      line-height: 1.2;
+      font-weight: 600;
+      margin: 0;
+    }
+    &__text {
+      font-size: f.rem(16);
+      line-height: f.rem(24);
+      margin: 0;
+    }
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--black-hover);
+      color: var(--white);
+    }
+    &--dark {
+      background-color: var(--black-hover);
+      color: var(--white);
+    }
+    &--full {
       position: relative;
-      z-index: 1;
-    }
-    /* sélectionner l'élément image dans ce modifier ?? */
-    .card__image {
-      position: absolute;
-      z-index: 0;
-      inset: 0;
-      height: 100%;
-      width: 100%;
-      aspect-ratio: unset;
-      margin: unset;
+      padding-top: f.rem(220);
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(0deg, var(--white), color-mix(in srgb, var(--white) 0%, transparent));
+      }
+      & > * {
+        position: relative;
+        z-index: 1;
+      }
+      /* sélectionner l'élément image dans ce modifier ?? */
+      .card__image {
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        aspect-ratio: unset;
+        margin: unset;
+      }
     }
   }
 }

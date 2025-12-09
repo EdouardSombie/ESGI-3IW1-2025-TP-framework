@@ -1,53 +1,55 @@
 @use "../partials/functions" as f;
 @use "../partials/mixins" as m;
-.button {
-  /* retirer les styles par défaut (liens, button) */
-  @include m.resetAll();
+@layer components {
+  .button {
+    /* retirer les styles par défaut (liens, button) */
+    @include m.resetAll();
 
-  /* styles par défaut du composant */
-  /* bg noir par défaut  > déclarer cette couleur au niveau de la racine (idem pour le noir-hover) */
-  /* texte en blanc par défaut > déclarer cette couleur... */
+    /* styles par défaut du composant */
+    /* bg noir par défaut  > déclarer cette couleur au niveau de la racine (idem pour le noir-hover) */
+    /* texte en blanc par défaut > déclarer cette couleur... */
 
-  background-color: var(--black);
-  color: var(--white);
-  display: inline-block;
-  padding: f.rem(10) f.rem(16);
-  border-radius: f.rem(6);
-  font-size: f.rem(16);
-  font-weight: 600;
-  line-height: f.rem(18);
-  cursor: pointer;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: var(--black-hover);
-  }
-
-  /* classes modificatrices */
-  &--primary {
-    background-color: var(--blue);
+    background-color: var(--black);
+    color: var(--white);
+    display: inline-block;
+    padding: f.rem(10) f.rem(16);
+    border-radius: f.rem(6);
+    font-size: f.rem(16);
+    font-weight: 600;
+    line-height: f.rem(18);
+    cursor: pointer;
+    transition: background-color 0.3s;
     &:hover {
-      background-color: var(--blue-hover);
+      background-color: var(--black-hover);
     }
-  }
-  &--secondary {
-    background-color: var(--grey);
-    &:hover {
-      background-color: var(--grey-hover);
-    }
-  }
-  &--danger {
-    background-color: var(--red);
-    &:hover {
-      background-color: var(--red-hover);
-    }
-  }
 
-  &--lg {
-    padding: f.rem(16) f.rem(24);
-  }
-  &--sm {
-    font-size: f.rem(14);
-    line-height: f.rem(16);
-    padding: f.rem(8) f.rem(12);
+    /* classes modificatrices */
+    &--primary {
+      background-color: var(--blue);
+      &:hover {
+        background-color: var(--blue-hover);
+      }
+    }
+    &--secondary {
+      background-color: var(--grey);
+      &:hover {
+        background-color: var(--grey-hover);
+      }
+    }
+    &--danger {
+      background-color: var(--red);
+      &:hover {
+        background-color: var(--red-hover);
+      }
+    }
+
+    &--lg {
+      padding: f.rem(16) f.rem(24);
+    }
+    &--sm {
+      font-size: f.rem(14);
+      line-height: f.rem(16);
+      padding: f.rem(8) f.rem(12);
+    }
   }
 }
