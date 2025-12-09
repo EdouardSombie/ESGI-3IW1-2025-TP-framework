@@ -165,8 +165,8 @@
 @layer base {
   :root {
     --spacing: 0.25rem;
-    --red: #dc3545;
-    --red-hover: rgb(186.146835443, 32.253164557, 46.9974683544);
+    --red: #cd0f22;
+    --red-hover: rgb(164, 12, 27.2);
     --grey: #6c757d;
     --grey-hover: rgb(86.4, 93.6, 100);
     --blue: #0d6efd;
@@ -177,6 +177,54 @@
     --black-hover: #333333;
     --white: #fff;
     --white-hover: #cccccc;
+    /*
+    Nuancier de couleurs plutôt
+    (du coup, le nom lightgrey n'a plus trop de sens ici...)
+    */
+    --red-950: hsl(354deg, 86.3636363636%, 12%);
+    --red-900: hsl(354deg, 86.3636363636%, 20%);
+    --red-800: hsl(354deg, 86.3636363636%, 28%);
+    --red-700: hsl(354deg, 86.3636363636%, 35%);
+    --red-600: hsl(354deg, 86.3636363636%, 43.137254902%); /* Original */
+    --red-500: hsl(354deg, 86.3636363636%, 60%);
+    --red-400: hsl(354deg, 86.3636363636%, 71%);
+    --red-300: hsl(354deg, 86.3636363636%, 82%);
+    --red-200: hsl(354deg, 86.3636363636%, 90%);
+    --red-100: hsl(354deg, 86.3636363636%, 95%);
+    --red-50: hsl(354deg, 86.3636363636%, 97%);
+    --grey-950: hsl(208.2352941176deg, 7.2961373391%, 12%);
+    --grey-900: hsl(208.2352941176deg, 7.2961373391%, 20%);
+    --grey-800: hsl(208.2352941176deg, 7.2961373391%, 28%);
+    --grey-700: hsl(208.2352941176deg, 7.2961373391%, 35%);
+    --grey-600: hsl(208.2352941176deg, 7.2961373391%, 45.6862745098%); /* Original */
+    --grey-500: hsl(208.2352941176deg, 7.2961373391%, 60%);
+    --grey-400: hsl(208.2352941176deg, 7.2961373391%, 71%);
+    --grey-300: hsl(208.2352941176deg, 7.2961373391%, 82%);
+    --grey-200: hsl(208.2352941176deg, 7.2961373391%, 90%);
+    --grey-100: hsl(208.2352941176deg, 7.2961373391%, 95%);
+    --grey-50: hsl(208.2352941176deg, 7.2961373391%, 97%);
+    --blue-950: hsl(215.75deg, 98.3606557377%, 12%);
+    --blue-900: hsl(215.75deg, 98.3606557377%, 20%);
+    --blue-800: hsl(215.75deg, 98.3606557377%, 28%);
+    --blue-700: hsl(215.75deg, 98.3606557377%, 35%);
+    --blue-600: hsl(215.75deg, 98.3606557377%, 50%);
+    --blue-500: hsl(215.75deg, 98.3606557377%, 52.1568627451%); /* Original */
+    --blue-400: hsl(215.75deg, 98.3606557377%, 71%);
+    --blue-300: hsl(215.75deg, 98.3606557377%, 82%);
+    --blue-200: hsl(215.75deg, 98.3606557377%, 90%);
+    --blue-100: hsl(215.75deg, 98.3606557377%, 95%);
+    --blue-50: hsl(215.75deg, 98.3606557377%, 97%);
+    --lightgrey-950: hsl(0deg, 0%, 12%);
+    --lightgrey-900: hsl(0deg, 0%, 20%);
+    --lightgrey-800: hsl(0deg, 0%, 28%);
+    --lightgrey-700: hsl(0deg, 0%, 35%);
+    --lightgrey-600: hsl(0deg, 0%, 50%);
+    --lightgrey-500: hsl(0deg, 0%, 60%);
+    --lightgrey-400: hsl(0deg, 0%, 71%);
+    --lightgrey-300: hsl(0deg, 0%, 82%);
+    --lightgrey-200: hsl(0deg, 0%, 89.8039215686%); /* Original */
+    --lightgrey-100: hsl(0deg, 0%, 95%);
+    --lightgrey-50: hsl(0deg, 0%, 97%);
   }
   body {
     font-family: "Inter", sans-serif;
@@ -421,6 +469,12 @@
   }
   .border-white {
     border-color: var(--white);
+  }
+}
+@layer components {
+  .grid {
+    display: grid;
+    gap: calc(4 * var(--spacing));
   }
 }
 @layer components {

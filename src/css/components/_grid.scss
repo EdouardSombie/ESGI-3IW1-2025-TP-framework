@@ -1,0 +1,9 @@
+@layer components {
+  .grid {
+    display: grid;
+    gap: calc(4 * var(--spacing));
+    // Nb de colonnes par défaut (12)
+
+    // classes col--1 jusqu'à col--12 (boucle @for)
+  }
+}

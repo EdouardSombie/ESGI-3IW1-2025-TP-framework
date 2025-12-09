@@ -12,6 +12,42 @@
         --#{$name}-hover: #{color.scale($value, $lightness: -20%)};
       }
     }
+
+    $shades: (
+      950: 12%,
+      900: 20%,
+      800: 28%,
+      700: 35%,
+      600: 50%,
+      500: 60%,
+      400: 71%,
+      300: 82%,
+      200: 90%,
+      100: 95%,
+      50: 97%,
+    );
+    /*
+    Nuancier de couleurs plutôt
+    (du coup, le nom lightgrey n'a plus trop de sens ici...)
+    */
+    @each $colorName, $colorValue in v.$colors {
+      @if ($colorName != "black" and $colorName != "white") {
+        $hue: color.channel($colorValue, "hue", hsl);
+        $saturation: color.channel($colorValue, "saturation", hsl);
+        $lightness: color.channel($colorValue, "lightness", hsl);
+        $previousShadeValue: 0%;
+        @each $shadeName, $shadeValue in $shades {
+          @if ($lightness > $previousShadeValue and $lightness < $shadeValue) {
+            //conserver la couleur d'origine et la mettre dans une shade
+            --#{$colorName}-#{$shadeName}: hsl(#{$hue}, #{$saturation}, #{$lightness}); /* Original */
+            @debug $colorName, $shadeName;
+          } @else {
+            --#{$colorName}-#{$shadeName}: hsl(#{$hue}, #{$saturation}, #{$shadeValue});
+          }
+          $previousShadeValue: $shadeValue;
+        }
+      }
+    }
   }
 
   body {
