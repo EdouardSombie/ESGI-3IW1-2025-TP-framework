@@ -1,9 +1,34 @@
+@use "../partials/variables" as v;
 @layer components {
   .grid {
+    $colNb: 12;
     display: grid;
     gap: calc(4 * var(--spacing));
     // Nb de colonnes par défaut (12)
+    // grid-template-columns : liste des colonnes de la grille (repeter 12 fois une fraction)
+    grid-template-columns: repeat(#{$colNb}, 1fr);
+
+    // Par défaut, les classes commençant par col-- aoccupe toute la largeur de la grille
+    [class^="col--"] {
+      // grid-column : colonne de départ / arrivée ou une étendue (span)
+      grid-column: 1 / -1;
+    }
 
     // classes col--1 jusqu'à col--12 (boucle @for)
+    @for $i from 1 through $colNb {
+      .col--#{$i} {
+        grid-column: span #{$i};
+      }
+    }
+    // mobile...
+    @each $name, $size in v.$breakpoints {
+      @media (width > $size) {
+        @for $i from 1 through $colNb {
+          .col--#{$name}--#{$i} {
+            grid-column: span #{$i};
+          }
+        }
+      }
+    }
   }
 }
